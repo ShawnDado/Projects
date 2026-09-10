@@ -112,6 +112,9 @@ int main() {
         switch (choice) {
             case 1: Menu(); break;
             case 3: checkout(); break;
+            default:
+            cout<< "Invalid";
+            return 0;
         }
     } while (choice != 3);
 
