@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.contact-page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.title span {
+  font-weight: 700;
+}
+
+.email-text {
+  color: #8c82b5;
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #2d2d2d;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #a0a0a0;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #000000;
+}
+
+.form-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.submit-btn {
+  align-self: flex-start;
+  padding: 12px 32px;
+  border: 1.5px solid #2d2d2d;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
