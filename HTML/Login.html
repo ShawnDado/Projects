@@ -6,10 +6,18 @@
   <title>Documents</title>
   <link rel="stylesheet" href="styles.css">
   <script src="site-header.js" defer></script>
+  <script src="node.js" defer></script>
 </head>
-<body>
+<body class="login-page-body">
   <site-header></site-header>
   
+   <main class="login-container">
+    <div class="login-wrapper">
+      <a href="Home.html" class="back-link">
+        &larr; Go to Home
+      </a>
+      
+      <h2 class="login-heading">Sign in to your account</h2>
    <div class="form-container">
     <form action="#" method="POST">
      <div class="input-group">
@@ -19,12 +27,10 @@
         <input type="password" placeholder="Password" required>
       </div>
      <div class="button-group">
-        <button type="submit" class="btn-submit">Create Account</button>
+        <button type="submit" class="btn-submit">Sign In</button>
       </div>
-
-
     </form>
   </div>
-
-
+  </main>
 </body>
+</html>

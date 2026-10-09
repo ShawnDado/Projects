@@ -14,6 +14,10 @@ body {
   min-height: 100vh;
 }
 
+site-header {
+  display: block;
+  width: 100;
+}
 
 /* ==========================================
     NAVBAR & FOOTER
@@ -170,14 +174,50 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 500px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #967BB6;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #7E57C2;
+}
+
+.login-heading {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 30px;
+  letter-spacing: -0.2px;
 }
 
 .form-container {
   background-color: #333333;
-  padding: 35px 25px 30px 25px;
+  padding: 40px;
   width: 100%;
-  max-width: 420px;
-  margin: auto;
+  border-radius: 12px;
 }
 
 .input-group {
