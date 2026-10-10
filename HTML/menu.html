@@ -6,6 +6,7 @@
     <title>Document</title>
      <link rel="stylesheet" href="styles.css">
      <script src="site-header.js" defer></script>
+     <script src="menu.js" defer></script>
 </head>
 <body>
     <site-header></site-header>
@@ -13,12 +14,12 @@
     <div class="container">
   <aside class="sidebar">
     <nav>
-      <h2>Drinks</h2>
       <ul class="category-list">
-        <li><a href="#" class="active" data-category="category">category</a></li>
-        <li><a href="#" data-category="category">category</a></li>
-        <li><a href="#" data-category="category">category</a></li>
-        <li><a href="#" data-category="category">category</a></li>
+        <li><b><a href="#1_" class="active" data-category="drinks">Drinks</a></li></b>
+        <li><a href="#2_" data-category="iced-coffee">Iced Coffees</a></li>
+        <li><a href="#3_" data-category="coffees">Coffees</a></li>
+        <li><a href="#4_" data-category="smoothandjuice">Smoothies and Juice</a></li>
+        <li><a href="#5_" data-category="teaandlatte">Tea and Latte</a></li>
       </ul>
 
       <h2>Food</h2>
@@ -32,29 +33,57 @@
   <main class="main-content">
     <header class="content-header">
       <p class="drinks">Menu / <span id="current-category">Drinks</span></p>
-      <h1 id="category-title">Category</h1>
+      <h1 id="category-title">Drinks</h1>
     </header>
 
     <section class="product-grid" id="product-container">
-      <article class="product-card" data-category="featured-drinks" data-id="1">
+      <article class="product-card" data-category="drinks" data-id="1">
         <div class="image-wrapper">
           <img src="" alt="product image">
         </div>
-        <h3 class="product-title">Product Name</h3>
+        <h3 class="product-title">Iced Coffees</h3>
       </article>
 
-      <article class="product-card" data-category="featured-drinks" data-id="2">
+      <article class="product-card" data-category="drinks" data-id="2">
         <div class="image-wrapper">
           <img src="" alt="product image">
         </div>
-        <h3 class="product-title">Product Name</h3>
+        <h3 class="product-title">Coffees</h3>
       </article>
       
-      <article class="product-card" data-category="featured-drinks" data-id="3">
+      <article class="product-card" data-category="drinks" data-id="3">
         <div class="image-wrapper">
           <img src="" alt="product image">
         </div>
-        <h3 class="product-title">Product Name</h3>
+        <h3 class="product-title">Smoothies and Juice</h3>
+        </article>
+
+        <article class="product-card" data-category="drinks" data-id="4">
+        <div class="image-wrapper">
+          <img src="" alt="product image">
+        </div>
+        <h3 class="product-title">Tea and Latte</h3>
+        </article>
+
+      <article class="product-card" data-category="iced-coffee" data-id="5">
+        <div class="image-wrapper">
+          <img src="iced latte.webp" alt="product image">
+        </div>
+        <h3 class="product-title">Latte</h3>
+      </article>
+      
+      <article class="product-card" data-category="iced-coffee" data-id="6">
+        <div class="image-wrapper">
+          <img src="iced hazelnut latte.png" alt="product image">
+        </div>
+        <h3 class="product-title">Hazelnut</h3>
+      </article>
+
+      <article class="product-card" data-category="iced-coffee" data-id="7">
+        <div class="image-wrapper">
+          <img src="" alt="product image">
+        </div>
+        <h3 class="product-title">Caramel Macchiato</h3>
       </article>
     </section>
   </main>
