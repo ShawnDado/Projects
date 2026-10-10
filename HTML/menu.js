@@ -14,15 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. Clean up text (removes extra spaces/newlines)
     const cleanName = categoryName.trim();
 
-    // 3. Update the main heading to match what you clicked (e.g., "Brewed Coffee")
+    // 3. Update the main heading to match what you clicked
     if (categoryTitle) {
       categoryTitle.textContent = cleanName;
     }
-
-    // Optional: Keep the breadcrumb fixed on "Drinks" or update it if you prefer
-    // If you want breadcrumb to always say "Drinks", leave currentCategorySpan fixed in HTML.
-    // If you want it to change too, uncomment the line below:
-    // if (currentCategorySpan) currentCategorySpan.textContent = cleanName;
 
     // 4. Show/hide product cards matching the category
     productCards.forEach(card => {
