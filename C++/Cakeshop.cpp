@@ -254,11 +254,11 @@ void checkout() {
 
     if (balance >=final) {
        change = balance - final;
-       cout<< "Your change is: " <<change;
-       cout<< "Thank You for Purchasing";
+       cout<< "\nYour change is: " <<change;
+       cout<< "\nThank You for Purchasing";
        valid = true;
     } else {
-        cout<< "Invalid Payment! Try again";
+        cout<< "\nInvalid Payment! Try again";
         valid = false;
     }
     
