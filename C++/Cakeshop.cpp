@@ -221,18 +221,22 @@ void checkout() {
         case 1:
             amount = total * 0.20;
             label = "Senior Citizen (20%)";
+            choice = true;
             break;
         case 2:
             amount = total * 0.20;
             label = "PWD (20%)";
+            choice = true;
             break;
         case 3:
             amount = total * 0.10;
             label = "Student (10%)";
+            choice = true;
             break;
         case 4:
             amount = 0;
             label = "None";
+            choice = true;
             break;
         default:
             cout << "\nInvalid choice. Try again\n";
