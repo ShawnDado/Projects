@@ -1,14 +1,14 @@
 #include <iostream>
-#include <vector>
+#include <vector>     // Allows the use of dynamic arrays to store our shopping cart items
 #include <string>
 using namespace std;
 
-struct Item {
-    string name;
-    double price;
-    int quantity;
+struct Item {                 // bundles all 3 variables in a single container 
+    string name;              // item name
+    double price;             // item price
+    int quantity;             // item quanity
     
-    Item(string n, double p, int q) {
+    Item(string n, double p, int q) {           // makes sure that whenever creating a new item, it follows this format (ex. cart.push_back(Item(...)))
         name = n;
         price = p;
         quantity = q;
@@ -17,6 +17,8 @@ struct Item {
 
 vector<Item> cart;  // holds every choice made, across all submenus
 
+
+// function that handles the categories under the Coffee and Expresso
 void CoffeeMenu() {
     int choice, choice2, quantity;
     cout<<"\nchoose category: "<<endl;
@@ -31,6 +33,7 @@ void CoffeeMenu() {
         cout<<"\nEnter quantity: ";
         cin>>quantity;
         
+        // Adds the selected coffee item and its total price to the cart
         if (choice2 == 1) cart.push_back(Item("Blonde Roast", 140 * quantity, quantity));
         else if (choice2 == 2) cart.push_back(Item("Cappuccino", 175 * quantity, quantity));
         else if (choice2 == 3) cart.push_back(Item("Featured Dark Roast", 140 * quantity, quantity));
@@ -64,6 +67,7 @@ void CoffeeMenu() {
     }
 }
 
+// function that handles the categories under the Non-Coffee Beverages
 void NoncoffeeMenu() {
     int choice, choice2, quantity;
     cout<<"\nchoose category: "<<endl;
@@ -112,6 +116,8 @@ void NoncoffeeMenu() {
 
 }
 
+
+// function that handles the categories under add-ons
 void addons() {
     int choice, choice2, quantity;
     
@@ -160,7 +166,7 @@ void addons() {
         cout<<"\nChoose order: "<<endl;
         cout<< "\n1. Vanilla Syrup (₱25)\n2. Salted Caramel Syrup (₱30)\n3. Hazelnut Syrup (₱35)\n";
         cin>>choice2;
-
+        
         if (choice2 == 1) cart.push_back(Item("Vanilla Syrup", 25, 1));
         else if (choice2 == 2) cart.push_back(Item("Salted Caramel Syrup", 30, 1));
         else if (choice2 == 3) cart.push_back(Item("Hazelnut Syrup", 35, 1));
@@ -180,7 +186,7 @@ void addons() {
         cout<<"\nChoose order: "<<endl;
         cout<< "\n1. Pomegranate Pearls (₱40)\n2. Coffee Jelly (₱45)\n3. Additional Frappuccino Chips (₱50)\n";
         cin>>choice2;
-
+        
         if (choice2 == 1) cart.push_back(Item("Pomegranate Pearls", 40, 1));
         else if (choice2 == 2) cart.push_back(Item("Coffee Jelly", 45, 1));
         else if (choice2 == 3) cart.push_back(Item("Additional Frappuccino Chips", 50, 1));
@@ -190,13 +196,14 @@ void addons() {
      }
 }
 
+// Main Menu function to route user to Coffee or Non-Coffee option
 void Menu() {
     int choice;
     
     cout<<"\nChoose type of coffee: "<<endl;
     cout<< "\n1. Coffee & Espresso\n2. Non-Coffee Beverages\n";
     cin>>choice;
-
+    
     switch (choice) {
         case 1: CoffeeMenu(); break;
         case 2: NoncoffeeMenu(); break;
@@ -206,12 +213,14 @@ void Menu() {
     
 }
 
+// Function to display the receipt, apply discounts, and calculate payment and change
 void checkout() {
     double total = 0, amount, final, balance, change;
     int discount;
     bool choice, valid;
     string label;
-
+    
+    // Loop through the cart vector to display items and calculate subtotal
     cout << "\n--- Receipt ---\n";
     for (const auto &item : cart) {
         cout << item.name << "(x" << item.quantity << ") - " << item.price << "\n";
@@ -219,6 +228,7 @@ void checkout() {
     }
     cout << "Total: " << total << "\n";
     
+    // Loop to ensure a valid discount choice is made
     do { 
     cout << "\nChoose Discount:\n";
     cout << "1. Senior Citizen Discount (20%)\n";
@@ -256,6 +266,7 @@ void checkout() {
     }
 } while (!choice);
 
+    // Loop to handle cash input and verify payment is enough
     do {
         final = total - amount;
 
@@ -280,6 +291,7 @@ void checkout() {
    } while (!valid);
 }
 
+// Main function: Runs the program loop
 int main() {
     int choice;
     do {
@@ -294,7 +306,7 @@ int main() {
             cout<< "\nInvalid";
             break;
         }
-    } while (choice != 3);
+    } while (choice != 3); // Loops until the user chooses checkout
 
     return 0;
 }
