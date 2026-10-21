@@ -63,7 +63,7 @@ void CoffeeMenu() {
         else if (choice2 == 3) cart.push_back(Item("Caramel Ribbon Crunch Frappuccino Blended Beverage", 210 * quantity, quantity));
         break;
             
-        default: cout<< "Invalid Choice";
+        default: cout<< "\nInvalid Choice\n";
     }
 }
 
@@ -111,7 +111,7 @@ void NoncoffeeMenu() {
         else if (choice2 == 3) cart.push_back(Item("Chocolate Cream Chip", 200 * quantity, quantity));
         break;
           
-        default: cout<< "Invalid Choice";
+        default: cout<< "\nInvalid Choice\n";
     }
 
 }
@@ -192,7 +192,7 @@ void addons() {
         else if (choice2 == 3) cart.push_back(Item("Additional Frappuccino Chips", 50, 1));
         break;
 
-        default: cout<< "Invalid Choice"; 
+        default: cout<< "\nInvalid Choice\n"; 
      }
 }
 
@@ -207,7 +207,7 @@ void Menu() {
     switch (choice) {
         case 1: CoffeeMenu(); break;
         case 2: NoncoffeeMenu(); break;
-        default: cout<< "Invalid Choice";
+        default: cout<< "\nInvalid Choice\n";
     }
 
     
