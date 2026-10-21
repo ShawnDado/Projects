@@ -22,13 +22,13 @@ vector<Item> cart;  // holds every choice made, across all submenus
 void CoffeeMenu() {
     int choice, choice2, quantity;
     cout<<"\nchoose category: "<<endl;
-    cout<< "\n1. Hot Coffee & Espresso\n2. Cold Coffee & Espresso\n3. Coffee Frappuccino\n";
+    cout<< "\n1. Hot Coffee & Espresso\n2. Cold Coffee & Espresso\n3. Coffee Frappuccino\n> ";
     cin>>choice;
     
     switch (choice) {
         case 1:
         cout<<"\nChoose order:\n ";
-        cout<<"\n1. Blonde Roast (₱140)\n2. Cappuccino (₱175)\n3. Featured Dark Roast (₱140)\n";
+        cout<<"\n1. Blonde Roast (₱140)\n2. Cappuccino (₱175)\n3. Featured Dark Roast (₱140)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -41,7 +41,7 @@ void CoffeeMenu() {
 
         case 2:
         cout<<"\nChoose order:\n ";
-        cout<<"\n1. Iced Coffee (₱150)\n2. Vanilla Protein Cream Cold Brew (₱205)\n3. Iced Caffe Mocha (₱190)\n";
+        cout<<"\n1. Iced Coffee (₱150)\n2. Vanilla Protein Cream Cold Brew (₱205)\n3. Iced Caffe Mocha (₱190)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -53,7 +53,7 @@ void CoffeeMenu() {
 
         case 3:
         cout<<"\nChoose order:\n ";
-        cout<<"\n1. Mocha Cookie Crumble Frappuccino Blended Beverage (₱210)\n2. Horchata Frappuccino Blended Beverage (₱200)\n3. Caramel Ribbon Crunch Frappuccino Blended Beverage (₱210)\n";
+        cout<<"\n1. Mocha Cookie Crumble Frappuccino Blended Beverage (₱210)\n2. Horchata Frappuccino Blended Beverage (₱200)\n3. Caramel Ribbon Crunch Frappuccino Blended Beverage (₱210)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -71,13 +71,13 @@ void CoffeeMenu() {
 void NoncoffeeMenu() {
     int choice, choice2, quantity;
     cout<<"\nchoose category: "<<endl;
-    cout<< "\n1. Tea\n2. Refreshments\n3. Chocolate and Cream\n";
+    cout<< "\n1. Tea\n2. Refreshments\n3. Chocolate and Cream\n> ";
     cin>>choice;
     
     switch (choice) {
         case 1:
         cout<<"\nChoose order:\n ";
-        cout<<"\n1. Chamomile Tea (₱135)\n2. Chai Tea Latte (₱175)\n3. Green Tea Latte (₱180)\n";
+        cout<<"\n1. Chamomile Tea (₱135)\n2. Chai Tea Latte (₱175)\n3. Green Tea Latte (₱180)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -89,7 +89,7 @@ void NoncoffeeMenu() {
 
         case 2:
         cout<<"\nChoose order:\n ";
-        cout<<"\n1. Strawberry Acai Refresher (₱165)\n2. Mango Dragonfruit with Lemonade (₱185)\n3. Pink Drink (₱190)\n";
+        cout<<"\n1. Strawberry Acai Refresher (₱165)\n2. Mango Dragonfruit with Lemonade (₱185)\n3. Pink Drink (₱190)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -101,7 +101,7 @@ void NoncoffeeMenu() {
 
         case 3:
         cout<<"\nChoose order:\n ";
-        cout<<"\n1. Signature Hot Chocolate (₱170)\n2. Strawberry Cream (₱195)\n3. Chocolate Cream Chip (₱200)\n";
+        cout<<"\n1. Signature Hot Chocolate (₱170)\n2. Strawberry Cream (₱195)\n3. Chocolate Cream Chip (₱200)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -122,13 +122,13 @@ void addons() {
     int choice, choice2, quantity;
     
     cout<<"\nchoose add-ons: "<<endl;
-     cout<< "\n1. Sandwiches\n2. Pastries\n3. Desserts\n4. Syrups & Flavors\n5. Milk Options\n6. Toppings & Extras\n";
+     cout<< "\n1. Sandwiches\n2. Pastries\n3. Desserts\n4. Syrups & Flavors\n5. Milk Options\n6. Toppings & Extras\n> ";
      cin>>choice;
 
      switch (choice) {
         case 1: 
         cout<<"\nChoose order: "<<endl;
-        cout<< "\n1. Chicken Pesto Sandwich (₱185)\n2. Grilled Cheese Sandwich (₱165)\n3. Ham, Egg & Cheese Sandwich (₱145)\n";
+        cout<< "\n1. Chicken Pesto Sandwich (₱185)\n2. Grilled Cheese Sandwich (₱165)\n3. Ham, Egg & Cheese Sandwich (₱145)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -140,7 +140,7 @@ void addons() {
 
         case 2: 
         cout<<"\nChoose order "<<endl;
-        cout<< "\n1. French Butter Croissant (₱95)\n2. Cinnamon Danish (₱115)\n3. Banana Bread (₱85)\n";
+        cout<< "\n1. French Butter Croissant (₱95)\n2. Cinnamon Danish (₱115)\n3. Banana Bread (₱85)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -152,7 +152,7 @@ void addons() {
 
         case 3: 
         cout<<"\nChoose order: "<<endl;
-        cout<< "\n1. Classic Chocolate Cake (₱220)\n2. Chocolate Pistachio Dream Bar (₱150)\n3. NewYork Cheesecake (₱235)\n";
+        cout<< "\n1. Classic Chocolate Cake (₱220)\n2. Chocolate Pistachio Dream Bar (₱150)\n3. NewYork Cheesecake (₱235)\n> ";
         cin>>choice2;
         cout<<"\nEnter quantity: ";
         cin>>quantity;
@@ -164,7 +164,7 @@ void addons() {
 
         case 4: 
         cout<<"\nChoose order: "<<endl;
-        cout<< "\n1. Vanilla Syrup (₱25)\n2. Salted Caramel Syrup (₱30)\n3. Hazelnut Syrup (₱35)\n";
+        cout<< "\n1. Vanilla Syrup (₱25)\n2. Salted Caramel Syrup (₱30)\n3. Hazelnut Syrup (₱35)\n> ";
         cin>>choice2;
         
         if (choice2 == 1) cart.push_back(Item("Vanilla Syrup", 25, 1));
@@ -174,7 +174,7 @@ void addons() {
 
         case 5: 
         cout<<"\nChoose order: "<<endl;
-        cout<< "\n1. Oatmilk (₱65)\n2. Soy milk (₱35)\n3. Almond milk (₱45)\n";
+        cout<< "\n1. Oatmilk (₱65)\n2. Soy milk (₱35)\n3. Almond milk (₱45)\n> ";
         cin>>choice2;
 
         if (choice2 == 1) cart.push_back(Item("Oatmilk", 65, 1));
@@ -184,7 +184,7 @@ void addons() {
 
         case 6: 
         cout<<"\nChoose order: "<<endl;
-        cout<< "\n1. Pomegranate Pearls (₱40)\n2. Coffee Jelly (₱45)\n3. Additional Frappuccino Chips (₱50)\n";
+        cout<< "\n1. Pomegranate Pearls (₱40)\n2. Coffee Jelly (₱45)\n3. Additional Frappuccino Chips (₱50)\n> ";
         cin>>choice2;
         
         if (choice2 == 1) cart.push_back(Item("Pomegranate Pearls", 40, 1));
@@ -201,7 +201,7 @@ void Menu() {
     int choice;
     
     cout<<"\nChoose type of coffee: "<<endl;
-    cout<< "\n1. Coffee & Espresso\n2. Non-Coffee Beverages\n";
+    cout<< "\n1. Coffee & Espresso\n2. Non-Coffee Beverages\n> ";
     cin>>choice;
     
     switch (choice) {
@@ -219,6 +219,12 @@ void checkout() {
     int discount;
     bool choice, valid;
     string label;
+
+    // validates if cart is empty
+    if (cart.empty()) {
+        cout << "\nYour cart is empty! Please add some items before checking out.\n";
+        return; 
+    }
     
     // Loop through the cart vector to display items and calculate subtotal
     cout << "\n--- Receipt ---\n";
@@ -306,7 +312,7 @@ int main() {
             cout<< "\nInvalid";
             break;
         }
-    } while (choice != 3); // Loops until the user chooses checkout
+    } while (choice != 3 || cart.empty()); // Loops until the user chooses checkout and cart is not empty
 
     return 0;
 }
