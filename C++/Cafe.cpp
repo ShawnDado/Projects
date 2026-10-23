@@ -87,7 +87,7 @@ void CoffeeMenu() {
         } while (!valid);
         break;
             
-        default: cout<< "\nInvalid Choice\n";
+        default: cout<< "Invalid Choice";
     }
 }
 
@@ -158,7 +158,7 @@ void NoncoffeeMenu() {
         } while (!valid);
         break;
           
-        default: cout<< "\nInvalid Choice\n";
+        default: cout<< "Invalid Choice";
     }
 
 }
@@ -294,7 +294,7 @@ void addons() {
         } while (!valid);
         break;
 
-        default: cout<< "\nInvalid Choice\n"; 
+        default: cout<< "Invalid Choice"; 
      }
 }
 
@@ -309,7 +309,7 @@ void Menu() {
     switch (choice) {
         case 1: CoffeeMenu(); break;
         case 2: NoncoffeeMenu(); break;
-        default: cout<< "\nInvalid Choice\n";
+        default: cout<< "Invalid Choice";
     }
 
     
