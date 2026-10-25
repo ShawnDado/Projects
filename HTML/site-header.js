@@ -7,8 +7,8 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
       <header class="navbar">
         <div class="nav-left">
-          <a href="Home.html">
-            <img src="logo.png" alt="Logo" class="logo">
+          <a href="index.html">
+            <img src="images/logo.png" alt="Logo" class="logo">
           </a>
           <a href="menu.html" class="menu-btn" id="nav-menu">MENU</a>
         </div>

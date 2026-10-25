@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Redirect to homepage after successful authentication/registration
-      window.location.href = 'Home.html';
+      window.location.href = 'index.html';
 
     });
   }
