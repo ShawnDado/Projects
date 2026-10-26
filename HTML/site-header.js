@@ -1,9 +1,35 @@
 class SiteHeader extends HTMLElement {
   connectedCallback() {
-    // checks if user is logged in
+    this.render();
+
+    // Listen for cart updates across the site in real-time
+    window.addEventListener('cartUpdated', () => {
+      this.updateBadgeCount();
+    });
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'cart') {
+        this.updateBadgeCount();
+      }
+    });
+  }
+
+  updateBadgeCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badge = this.querySelector('#cartBadge');
+    if (badge) {
+      badge.textContent = totalItems;
+    }
+  }
+
+  render() {
+    // Check if user is logged in
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
-    // allows the header to appear in all pages
+    // Render the header layout
     this.innerHTML = `
       <header class="navbar">
         <div class="nav-left">
@@ -13,6 +39,14 @@ class SiteHeader extends HTMLElement {
           <a href="menu.html" class="menu-btn" id="nav-menu">MENU</a>
         </div>
         <div class="nav-right">
+          <a href="checkout.html" class="cart-btn" id="nav-cart" title="View Cart">
+            <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-badge" id="cartBadge">${totalItems}</span>
+          </a>
           <a href="${currentUser ? '#' : 'Login.html'}" class="sign-in-btn" id="auth-btn">
             ${currentUser ? 'Log out' : 'Sign in'}
           </a>
@@ -20,23 +54,19 @@ class SiteHeader extends HTMLElement {
       </header>
     `;
 
-    // Highlight menu button if the menu is active
+    // Highlight the menu button if the current page is the menu
     const currentUrl = window.location.href.toLowerCase();
     const menuBtn = this.querySelector('#nav-menu');
     if (menuBtn && currentUrl.includes('menu')) {
       menuBtn.classList.add('active');
     }
 
-    // 3. Attach Logout functionality
+    // Attach Logout functionality if a user session exists[cite: 6]
     if (currentUser) {
       const authBtn = this.querySelector('#auth-btn');
       authBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        // Remove current user session
         localStorage.removeItem('currentUser');
-        
-        // Refresh the page to update the UI back to "Sign in"
         window.location.href = 'Login.html';
       });
     }
