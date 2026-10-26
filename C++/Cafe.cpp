@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>     // Allows the use of dynamic arrays to store our shopping cart items
-#include <string>     // Allows the use of string objects
-#include <sstream>    // Allows string stream operations
+#include <string>     // Allows the use of string objects   // Allows string stream operations
 using namespace std;
 
 struct Item {                 // bundles all 3 variables in a single container 
