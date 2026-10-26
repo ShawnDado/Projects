@@ -1,4 +1,5 @@
 class SiteFooter extends HTMLElement {
+  // Called automatically by the browser when the element is inserted into the DOM[cite: 8].
   connectedCallback() {
     this.innerHTML = `
       <footer class="footer">
@@ -20,4 +21,5 @@ class SiteFooter extends HTMLElement {
   }
 }
 
+// Register custom HTML tag <site-footer>
 customElements.define('site-footer', SiteFooter);

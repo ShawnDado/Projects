@@ -10,23 +10,33 @@
   <script src="login.js" defer></script>
 </head>
 <body class="login-page-body">
+  <!-- Custom Web Component Navigation Header -->
   <site-header></site-header>
   
+  <!-- Main Authentication Container Wrapper -->
    <main class="login-container">
     <div class="login-wrapper">
+      <!-- Back Navigation Link Returning User to Home Page -->
       <a href="index.html" class="back-link">
         &larr; Go to Home
       </a>
       
+      <!-- Authentication Header Heading -->
       <h2 class="login-heading">Sign in to your account</h2>
+
+   <!-- Form Container Card -->
    <div class="form-container">
+    <!-- Login/Sign-in Form Handling User Credentials-->
     <form action="#" method="POST">
+      <!-- Email Input Group -->
      <div class="input-group">
         <input type="email" placeholder="Email" required>
       </div>
+     <!-- Password Input Group -->
      <div class="input-group">
         <input type="password" placeholder="Password" required>
       </div>
+      <!-- Action Button Group -->
      <div class="button-group">
         <button type="submit" class="btn-submit">Sign In</button>
       </div>
@@ -35,6 +45,7 @@
   </div>
   </main>
 
+<!-- Custom Web Component Footer -->
 <site-footer></site-footer>
 </body>
 </html>

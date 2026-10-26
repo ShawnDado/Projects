@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Retrieve current user session from localStorage
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   const authRequiredMsg = document.getElementById('auth-required-message');
   const checkoutContent = document.getElementById('checkout-content');
 
-  // 1. Toggle visibility based on login state using classes instead of inline styles
+  // Toggle authentication warning vs checkout layout using class toggling
   if (!currentUser) {
     if (authRequiredMsg) authRequiredMsg.classList.remove('u-hidden');
     if (checkoutContent) checkoutContent.classList.add('u-hidden');
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Render cart items
   renderCart();
 
-  // Modal elements
+  // DOM element bindings for payment modal
   const btnProceedPayment = document.getElementById('btnProceedPayment');
   const paymentModal = document.getElementById('paymentModal');
   const paymentModalClose = document.getElementById('paymentModalClose');
@@ -28,12 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentSubtotal = 0;
 
-  // Calculate current subtotal dynamically
+  // Function to calculate the current cart subtotal dynamically
   function getSubtotal() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   }
 
+  // Event listener for proceeding to payment modal
   if (btnProceedPayment && paymentModal) {
     btnProceedPayment.addEventListener('click', () => {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const selectedProviderInput = document.querySelector('input[name="wallet-provider"]:checked');
       const provider = selectedProviderInput ? selectedProviderInput.value : 'gcash';
 
-      // Build dynamic modal fields cleanly using CSS classes and strict 11-digit attribute limits
+      // Dynamically inject corresponding input fields based on payment provider
       if (modalDynamicInputs) {
         if (provider === 'gcash' || provider === 'paypal') {
           modalHeading.textContent = `Enter ${provider.toUpperCase()} Details`;
@@ -74,12 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Close modal event handler
   if (paymentModalClose && paymentModal) {
     paymentModalClose.addEventListener('click', () => {
       paymentModal.classList.remove('active');
     });
   }
 
+  // Confirmation and validation of payment transaction
   if (confirmPayBtn) {
     confirmPayBtn.addEventListener('click', () => {
       const depositInput = document.getElementById('depositAmountInput');
@@ -93,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const selectedProviderInput = document.querySelector('input[name="wallet-provider"]:checked');
       const provider = selectedProviderInput ? selectedProviderInput.value : 'gcash';
 
-      // Strict 11-digit phone validation regex
+      // Validate 11-digit phone number using regex
       const phoneRegex = /^\d{11}$/;
       if (!phoneRegex.test(phoneVal)) {
         if (errorMsg) {
@@ -103,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Validate credit card number if credit-card is selected
       if (provider === 'credit-card' && (!cardVal || cardVal.length < 16)) {
         if (errorMsg) {
           errorMsg.textContent = 'Please enter a valid 16-digit card number.';
@@ -111,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Validate that tendered deposit covers the total due
       if (isNaN(depositVal) || depositVal < currentSubtotal) {
         if (errorMsg) {
           errorMsg.textContent = 'Payment invalid or insufficient amount. Try again.';
@@ -119,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // 1. Capture cart, transaction details, and method info BEFORE clearing storage
+     // Capture cart data, transaction date, and payment details before clearing storage
       const purchasedCart = JSON.parse(localStorage.getItem('cart')) || [];
       const change = depositVal - currentSubtotal;
       const transactionDate = new Date().toLocaleString();
@@ -132,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Generate random 8 to 13 digit reference number for GCash/PayPal
+      // Generate a random reference number
       let refNumber = '';
       if (provider === 'gcash' || provider === 'paypal') {
         const refLength = Math.floor(Math.random() * 6) + 8;
@@ -141,16 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Close modal
+      // Close modal and clear cart storage
       paymentModal.classList.remove('active');
-
-      // Clear cart
       localStorage.removeItem('cart');
 
-      // Update header badge
+      // Trigger header badge update event
       window.dispatchEvent(new Event('cartUpdated'));
 
-      // 2. Populate Receipt Elements
+      // Populate receipt DOM elements with transaction data
       const receiptDateEl = document.getElementById('receiptDate');
       const receiptPaymentMethodEl = document.getElementById('receiptPaymentMethod');
       const receiptPhoneEl = document.getElementById('receiptPhone');
@@ -190,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
       }
 
-      // 3. Transition screen to Payment Successful using classes
+      // Switch screen view from checkout layout to success screen
       const checkoutContentEl = document.getElementById('checkout-content');
       if (checkoutContentEl) checkoutContentEl.classList.add('u-hidden');
       const successScreen = document.getElementById('payment-success-content');
@@ -201,7 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-function renderCart() {
+ //Renders the cart summary list and calculates subtotal
+  function renderCart() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const container = document.getElementById('cartItemsList');
   const subtotalEl = document.getElementById('cartSubtotal');
@@ -245,6 +250,7 @@ function renderCart() {
   subtotalEl.textContent = `PHP ${subtotal.toFixed(2)}`;
 }
 
+//Global helper function to adjust item quantities in the cart
 window.changeQty = function(index, delta) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (cart[index]) {

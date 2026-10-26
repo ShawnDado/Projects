@@ -1,13 +1,16 @@
 /* ==========================================
    BASE STYLES
    ========================================== */
-* {
+
+/* Universal Reset: Standardize margins, padding, box sizing, and default typography */
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
+/* Page Body Layout: footer architecture using Flexbox column layout */
 body {
   background-color: #ffffff;
   color: #333333;
@@ -16,6 +19,7 @@ body {
   flex-direction: column;
 }
 
+/* Custom Web Component wrappers set as block elements */
 site-header {
   display: block;
   width: 100%;
@@ -24,9 +28,10 @@ site-header {
 site-footer {
   display: block;
   width: 100%;
-  margin-top: auto;
+  margin-top: auto; /* Push footer to the bottom of the viewport */
 }
 
+/* Page containers expanding flexibly within body */
 .container, 
 .content, 
 .about-container, 
@@ -38,6 +43,8 @@ site-footer {
 /* ==========================================
     NAVBAR & FOOTER
    ========================================== */
+
+/* Navigation Header Bar */
 .navbar {
   display: flex;
   align-items: center;
@@ -53,6 +60,7 @@ site-footer {
   gap: 1.5rem;
 }
 
+/* Cart Icon Button & Badge Positioning */
 .cart-btn {
   position: relative;
   display: flex;
@@ -63,6 +71,7 @@ site-footer {
   padding: 8px;
 }
 
+/* Dynamic Counter Badge over Cart Icon */
 .cart-badge {
   position: absolute;
   top: 0;
@@ -89,6 +98,7 @@ site-footer {
   width: auto;
 }
 
+/* Active Nav Link Underline Styling */
 .menu-btn {
   position: relative;
   background: none;
@@ -175,6 +185,8 @@ site-footer {
 /* ==========================================
     HOME PAGE 
    ========================================== */
+
+/* Styling layout for Home Page */
 .content {
   width: 100%;
   max-width: 1000px;
@@ -204,6 +216,7 @@ site-footer {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* Glassmorphic Overlay Button */
 .overlay-btn {
   position: absolute;
   bottom: 24px;                 
@@ -229,6 +242,7 @@ site-footer {
   background-color: rgba(255, 255, 255, 0.88);
 }
 
+/* Object Position Tweaks for Image Alignment */
 .img-1 { 
   object-position: top; 
 }
@@ -249,6 +263,8 @@ site-footer {
 /* ==========================================
    LOGIN PAGE
    ========================================== */
+
+/* Full-height layout styling specific to the login page body */
 .login-page-body {
   background-color: #f4f4f4;
   display: flex;
@@ -257,6 +273,7 @@ site-footer {
   margin: 0;
 }
 
+/* Centered container wrapper for the login card/form */
 .login-container {
   flex: 1;
   display: flex;
@@ -270,6 +287,7 @@ site-footer {
   max-width: 500px;
 }
 
+/* Back navigation link styling */
 .back-link {
   display: inline-block;
   color: #967BB6;
@@ -284,6 +302,7 @@ site-footer {
   color: #7E57C2;
 }
 
+/* Login form title heading */
 .login-heading {
   text-align: center;
   font-size: 1.5rem;
@@ -293,6 +312,7 @@ site-footer {
   letter-spacing: -0.2px;
 }
 
+/* Dark-themed background container for login inputs */
 .form-container {
   background-color: #333333;
   padding: 40px;
@@ -304,6 +324,7 @@ site-footer {
   margin-bottom: 18px;
 }
 
+/* Rounded form input fields */
 .input-group input {
   width: 100%;
   padding: 12px 20px;
@@ -323,6 +344,7 @@ site-footer {
   justify-content: flex-end;
 }
 
+/* Primary gradient submit button */
 .btn-submit {
   background: linear-gradient(to bottom, #967BB6 0%, #7E57C2 100%);
   color: #ffffff;
@@ -348,6 +370,8 @@ site-footer {
 /* ==========================================
     MENU PAGE
    ========================================== */
+
+/* Main container layout for sidebar and products */
 .container {
   display: flex;
   width: 100%;
@@ -376,6 +400,7 @@ site-footer {
   margin-bottom: 12px;
 }
 
+/* Category sidebar links */
 .category-list a {
   text-decoration: none;
   color: #6b6b6b;
@@ -408,6 +433,7 @@ site-footer {
   margin-bottom: 32px;
 }
 
+/* 4-column CSS Grid for product item cards */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -422,6 +448,7 @@ site-footer {
   cursor: pointer;
 }
 
+/* Circular image wrapper for menu items */
 .image-wrapper {
   width: 140px;
   height: 140px;
@@ -454,6 +481,7 @@ site-footer {
   line-height: 1.3;
 }
 
+/* Product Detail Modal Overlay */
 .product-modal-overlay {
   display: flex;
   pointer-events: none;
@@ -476,6 +504,7 @@ site-footer {
   opacity: 1;
 }
 
+/* Modal dialog container */
 .product-modal {
   background-color: #ffffff;
   width: 90%;
@@ -493,6 +522,7 @@ site-footer {
   transform: scale(1);
 }
 
+/* Modal close button */
 .modal-close-btn {
   position: absolute;
   top: 16px;
@@ -506,6 +536,7 @@ site-footer {
   line-height: 1;
 }
 
+/* Left side panel of the modal containing the product image */
 .modal-left {
   width: 45%;
   background-color: #967BB6;
@@ -521,6 +552,7 @@ site-footer {
   object-fit: contain;
 }
 
+/* Right side panel of the modal containing details, pricing, and controls */
 .modal-right {
   width: 55%;
   padding: 50px 36px;
@@ -542,6 +574,7 @@ site-footer {
   line-height: 1.5;
 }
 
+/* Sidebar category list spacing utility */
 .sidebar .category-list + .category-list {
   margin-top: 36px;
 }
@@ -553,6 +586,7 @@ site-footer {
   margin: 16px 0 12px 0;
 }
 
+/* Quantity selection container layout */
 .modal-quantity-container {
   display: flex;
   align-items: center;
@@ -585,6 +619,7 @@ site-footer {
   cursor: pointer;
 }
 
+/* Add to cart action button */
 .btn-add-to-cart {
   background: linear-gradient(to bottom, #967BB6 0%, #7E57C2 100%);
   color: #ffffff;
@@ -600,6 +635,8 @@ site-footer {
 /* ==========================================
    CONTACTS PAGE
    ========================================== */
+
+/* Main wrapper centering the contact card within the remaining viewport height */
 .contact-page-wrapper {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -609,6 +646,7 @@ site-footer {
   padding: 20px;
 }
 
+/* Card container constraining the width of the contact form */
 .contact-card {
   width: 100%;
   max-width: 480px;
@@ -616,6 +654,7 @@ site-footer {
   flex-direction: column;
 }
 
+/* Heading title typography */
 .title {
   font-size: 2.2rem;
   font-weight: 300;
@@ -627,18 +666,21 @@ site-footer {
   font-weight: 700;
 }
 
+/* Sub-label text styling for email indicator */
 .email-text {
   color: #8c82b5;
   font-size: 1rem;
   margin-bottom: 28px;
 }
 
+/* Flexbox layout for vertical form arrangement */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+/* Form text input and message text area shared styling */
 .form-input,
 .form-textarea {
   width: 100%;
@@ -656,16 +698,19 @@ site-footer {
   color: #a0a0a0;
 }
 
+/* Focus state border emphasis */
 .form-input:focus,
 .form-textarea:focus {
   border-color: #000000;
 }
 
+/* Multiline textarea styling with vertical resizing enabled */
 .form-textarea {
   min-height: 140px;
   resize: vertical;
 }
 
+/* Form submission button styling */
 .submit-btn {
   align-self: flex-start;
   padding: 12px 32px;
@@ -688,51 +733,174 @@ site-footer {
 /* ==========================================
    ABOUT PAGE
    ========================================== */
+
+/* Main container wrapper ensuring full width and consistent text color */
+.about-page {
+  width: 100%;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Hero banner section at the top of the About page */
+.about-hero {
+  background-color: #f7f5fa;
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 1px solid #eae5f2;
+  margin-bottom: 40px;
+}
+
+/* Main title styling inside the hero section */
+.about-hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+/* Subtitle / tag-line typography below the hero title */
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #665588;
+  font-weight: 400;
+}
+
+/* Main content container limiting the maximum width and centering content */
 .about-container {
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 0 20px 80px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 60px;
 }
 
-.image-section {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
+/* Base styling for individual content sections within the About page */
+.about-section {
   width: 100%;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.image-section img {
+/* Responsive image styling maintaining proportions */
+.about-section .image-section {
+  width: 100%;
+  margin: 0 0 16px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.about-section .image-section img {
   width: 100%;
   height: auto;
+  max-height: 450px;
+  object-fit: cover;
   display: block;
 }
 
-.text-section {
+/* Text block wrapper layout */
+.about-section .text-section {
   width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+/* Specialized styling for the highlighted Mission Statement block */
+.mission-section .text-section {
   text-align: center;
-  padding: 40px 20px 60px 20px;
+  background-color: #faf8fc;
+  padding: 40px;
+  border-radius: 12px;
+  border-left: 5px solid #7E57C2;
+}
+
+.mission-section h2 {
+  color: #7E57C2;
+}
+
+.mission-section p {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: #2c2c2c;
+  line-height: 1.6;
 }
 
 .text-section h2 {
-  font-size: 2.5rem;
-  font-weight: 400;
-  margin-bottom: 24px;
-  letter-spacing: 1px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  letter-spacing: -0.3px;
 }
 
 .text-section p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
-  color: #333;
+  color: #444444;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.offer-intro, .offer-outro {
+  font-size: 1.1rem;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
+/* 3-column CSS Grid layout showcasing cafe offerings */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 24px 0;
+}
+
+/* Responsive breakpoint: Collapse offering grid to a single column on mobile screens */
+@media (max-width: 768px) {
+  .offer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual card styling for items listed in the offering grid */
+.offer-card {
+  background-color: #f9f8fc;
+  border: 1px solid #e2dbec;
+  border-radius: 10px;
+  padding: 24px;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover elevation effect for offering cards */
+.offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(126, 87, 194, 0.12);
+}
+
+.offer-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #7E57C2;
+  margin-bottom: 10px;
+}
+
+.offer-card p {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* ==========================================
    Checkout PAGE
    ========================================== */
+
+/* Main container wrapper for the checkout view */
 .checkout-container {
   max-width: 1100px;
   width: 100%;
@@ -740,6 +908,7 @@ site-footer {
   padding: 0 20px;
 }
 
+/* Warning card shown as a fallback when the user is not authenticated */
 .auth-warning-card {
   text-align: center;
   background: #ffffff;
@@ -777,6 +946,7 @@ site-footer {
   font-size: 1rem;
 }
 
+/* Two-column grid layout dividing the checkout form and the cart summary */
 .checkout-layout {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -810,6 +980,7 @@ site-footer {
   margin-bottom: 10px;
 }
 
+/* Payment options vertical stacking container */
 .payment-options {
   display: flex;
   flex-direction: column;
@@ -908,6 +1079,7 @@ site-footer {
   font-weight: 500;
 }
 
+/* Nested indented container for specific e-wallet/card providers */
 .wallet-subcategories {
   display: flex;
   flex-direction: column;
@@ -927,6 +1099,7 @@ site-footer {
   cursor: pointer;
 }
 
+/* Proceed payment action button */
 .btn-proceed-payment {
   display: block;
   width: 100%;
@@ -951,6 +1124,7 @@ site-footer {
   transform: translateY(1px);
 }
 
+/* Payment input modal overlay container */
 .payment-modal-overlay {
   display: none;
   position: fixed;
@@ -984,6 +1158,7 @@ site-footer {
   margin-bottom: 10px;
 }
 
+/* Success screen layout upon successful payment completion */
 .success-screen {
   display: flex;
   flex-direction: column;
@@ -1007,6 +1182,7 @@ site-footer {
   color: #333333;
 }
 
+/* Dashed receipt card styling to resemble a physical printout */
 .receipt-card {
   background-color: #fafafa;
   border: 1px dashed #b19cd9;
@@ -1079,6 +1255,7 @@ site-footer {
   padding-top: 8px;
 }
 
+/* Utility classes for handling conditional visibility */
 .u-hidden {
   display: none !important;
 }

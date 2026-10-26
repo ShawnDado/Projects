@@ -7,6 +7,7 @@ class SiteHeader extends HTMLElement {
       this.updateBadgeCount();
     });
 
+    // Listen for storage events across tabs
     window.addEventListener('storage', (e) => {
       if (e.key === 'cart') {
         this.updateBadgeCount();
@@ -14,6 +15,7 @@ class SiteHeader extends HTMLElement {
     });
   }
 
+  // Dynamically update the cart badge count indicator
   updateBadgeCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -24,12 +26,12 @@ class SiteHeader extends HTMLElement {
   }
 
   render() {
-    // Check if user is logged in
+    // Check user login session and cart total items
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
-    // Render the header layout
+    // Render HTML layout template for header
     this.innerHTML = `
       <header class="navbar">
         <div class="nav-left">
@@ -61,7 +63,7 @@ class SiteHeader extends HTMLElement {
       menuBtn.classList.add('active');
     }
 
-    // Attach Logout functionality if a user session exists[cite: 6]
+    // Attach Logout functionality if a user session exists
     if (currentUser) {
       const authBtn = this.querySelector('#auth-btn');
       authBtn.addEventListener('click', (e) => {

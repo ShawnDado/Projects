@@ -10,20 +10,22 @@
     <script src="checkout.js" defer></script>
 </head>
 <body class="checkout-page-body">
+  <!-- Custom Web Component Navigation Header -->
   <site-header></site-header>
 
   <main class="checkout-container">
-    <!-- Fallback shown when NOT logged in -->
+    <!-- Authentication Guard Fallback: Shown when the user is NOT logged in -->
     <div id="auth-required-message" class="auth-warning-card u-hidden">
       <h2>Sign in Required</h2>
       <p>You must be logged in to view the checkout feature.</p>
       <a href="Login.html" class="btn-submit">Sign In Now</a>
     </div>
 
-    <!-- Payment Successful View (Hidden by default) -->
+    <!-- Post-Checkout Success Screen / Digital Receipt View (Hidden by default) -->
     <div id="payment-success-content" class="success-screen u-hidden">
       <h1 class="success-heading">Payment Successful</h1>
       
+      <!-- Printable-Style Receipt Card -->
       <div class="receipt-card">
         <h3>Lavender Coffee Company</h3>
         <p class="receipt-date" id="receiptDate">Date: --</p>
@@ -32,12 +34,13 @@
         <p class="receipt-ref u-hidden" id="receiptRef">Ref No: --</p>
         <div class="receipt-divider"></div>
         
+        <!-- Itemized Purchased Products List (Dynamically populated via checkout.js) -->
         <div class="receipt-items-list" id="receiptItemsList">
-          <!-- Dynamically populated via checkout.js -->
         </div>
         
         <div class="receipt-divider"></div>
         
+        <!-- Financial Breakdown Rows -->
         <div class="receipt-summary-row">
           <span>Total Due:</span>
           <span id="receiptTotalPaid">PHP 0.00</span>
@@ -52,13 +55,14 @@
         </div>
       </div>
 
+      <!-- Action Button to Return Home -->
       <a href="index.html" class="btn-submit">Return to Home</a>
     </div>
 
-    <!-- Checkout layout shown ONLY when logged in -->
+    <!-- Active Checkout Layout: Shown ONLY when the user is logged in -->
     <div id="checkout-content" class="checkout-layout u-hidden">
       
-      <!-- Left Column: Payment & Details -->
+      <!-- Left Column: Payment Methods and Form Details -->
       <section class="checkout-main">
         <h1 class="checkout-title">Checkout</h1>
         
@@ -67,12 +71,13 @@
           <p class="sub-label">Payment method</p>
           
           <div class="payment-options">
+            <!-- Primary E-Wallet / Card Option Selector -->
             <label class="payment-option">
               <input type="radio" name="payment-method" value="ewallet" checked>
               <span>E-WALLET/CARD</span>
             </label>
             
-            <!-- Sub-categories under E-Wallet/Card -->
+            <!-- Indented Sub-categories under E-Wallet/Card -->
             <div class="wallet-subcategories" id="walletSubcategories">
               <label class="wallet-sub-option">
                 <input type="radio" name="wallet-provider" value="gcash" checked>
@@ -90,52 +95,58 @@
           </div>
         </div>
 
+        <!-- Privacy Policy Notice Container -->
         <div class="privacy-note">
           <p>Your privacy is important to us; we work hard to keep your trust. If you've got questions about this serious matter.</p>
         </div>
       </section>
 
-      <!-- Right Column: Cart Summary -->
+      <!-- Right Column: Interactive Cart Summary & Subtotal Review -->
       <aside class="checkout-summary">
         <div class="summary-header">
           <h3>IN YOUR CART</h3>
           <a href="menu.html" class="edit-cart-link">Edit cart</a>
         </div>
 
+        <!-- Cart Items List Container (Dynamically populated via checkout.js) -->
         <div class="cart-items-list" id="cartItemsList">
-          <!-- Dynamically populated via checkout.js -->
         </div>
 
         <div class="summary-divider"></div>
 
+        <!-- Subtotal Row Display -->
         <div class="subtotal-row">
           <span>Subtotal</span>
           <span id="cartSubtotal">PHP 0.00</span>
         </div>
 
-        <!-- Proceed Payment Button below subtotal -->
+        <!-- Trigger Button to Open Payment Modal -->
         <button type="button" class="btn-proceed-payment" id="btnProceedPayment">Proceed Payment</button>
       </aside>
 
     </div>
   </main>
 
-  <!-- Payment Deposit Modal Popup -->
+  <!-- Payment Deposit Modal Popup Overlay -->
   <div class="payment-modal-overlay" id="paymentModal">
     <div class="payment-modal">
+      <!-- Modal Close Control Button -->
       <button class="modal-close-btn" id="paymentModalClose">&times;</button>
       <h2 id="modalHeading">Enter Payment Details</h2>
       <p id="modalSubtotalDisplay" class="modal-subtotal-text">Total Due: PHP 0.00</p>
       
-      <!-- Dynamically injected inputs based on payment method -->
+      <!-- Container for Dynamically Injected Input Fields Based on Selected Payment Provider -->
       <div id="modalDynamicInputs" class="modal-dynamic-container"></div>
 
+      <!-- Error Message Feedback Container -->
       <div id="paymentErrorMsg" class="payment-error-msg u-hidden"></div>
 
+      <!-- Final Transaction Confirmation Button -->
       <button type="button" class="btn-submit btn-full-width" id="confirmPayBtn">Pay</button>
     </div>
   </div>
 
+  <!-- Custom Web Component Footer -->
   <site-footer></site-footer>
 </body>
 </html>

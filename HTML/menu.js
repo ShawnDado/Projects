@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const productCards = document.querySelectorAll(".product-card");
 
   let activeProduct = null;
-
+  
+  // Function to filter and switch categories in the product display grid
   function switchCategory(targetCategory, categoryName, linkElement) {
     categoryLinks.forEach(item => item.classList.remove("active"));
     if (linkElement) linkElement.classList.add("active");
@@ -23,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
+  
+  // Attach event listeners to sidebar category links
   categoryLinks.forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Handle overview cards to jump directly to categories
   const overviewCards = document.querySelectorAll(".product-card[data-target-category]");
   overviewCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -47,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Modal Elements
+  // Modal element references
   const productModal = document.getElementById("productModal");
   const modalCloseBtn = document.getElementById("modalCloseBtn");
   const modalImg = document.getElementById("modalImg");
@@ -59,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const qtyPlus = document.getElementById("qtyPlus");
   const addToCartBtn = document.getElementById("addToCartBtn");
 
+  // Dynamically update total price in the product modal based on quantity
   function updateModalPrice() {
     if (!activeProduct) return;
     const qty = parseInt(modalQuantity.value, 10) || 1;
@@ -66,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalPrice.textContent = `PHP ${totalPrice.toFixed(2)}`;
   }
 
+  // Open modal when clicking individual product cards
   productCards.forEach(card => {
     card.addEventListener("click", () => {
       const category = card.getAttribute("data-category");
@@ -89,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Handle modal quantity increment/decrement buttons
   if (qtyMinus && qtyPlus && modalQuantity) {
     qtyMinus.addEventListener("click", () => {
       let val = parseInt(modalQuantity.value, 10) || 1;
@@ -105,11 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  
-
+  // Handle adding product to cart with login check
   if (addToCartBtn) {
     addToCartBtn.addEventListener("click", () => {
-      // 1. Check if user is logged in
       const currentUser = JSON.parse(localStorage.getItem('currentUser'));
       
       if (!currentUser) {
@@ -121,10 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!activeProduct) return;
 
-      // 2. Add to cart if authenticated
       const qty = parseInt(modalQuantity.value, 10) || 1;
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+      // Check if item already exists in cart and update quantity accordingly
       const existingIndex = cart.findIndex(item => item.id === activeProduct.id);
       if (existingIndex > -1) {
         cart[existingIndex].quantity += qty;
@@ -145,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Close modal event listeners
   if (modalCloseBtn && productModal) {
     modalCloseBtn.addEventListener("click", () => productModal.classList.remove("active"));
     productModal.addEventListener("click", (e) => {
@@ -152,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Handle URL hash routing on initial page load
   function handleInitialHash() {
     const currentHash = window.location.hash;
     if (currentHash) {

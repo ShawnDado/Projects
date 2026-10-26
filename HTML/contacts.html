@@ -9,22 +9,30 @@
     <script src="site-footer.js" defer></script>
 </head>
 <body>
+  <!-- Custom Navigation Header -->
   <site-header></site-header>
   
+<!-- Centered Contact Form Container Wrapper -->
 <div class="contact-page-wrapper">
   <div class="contact-card">
     <h1 class="title">Contact Us</h1>
     <p class="email-text">Email</p>
-
+    
+    <!-- Inquiry Submission Form -->
     <form class="contact-form" action="/contact" method="POST">
+      <!-- Input field for user full name -->
       <input type="text" name="name" placeholder="Name" class="form-input" required>
+      <!-- Input field for contact email -->
       <input type="email" name="email" placeholder="Email" class="form-input" required>
+      <!-- Textarea for message body -->
       <textarea name="message" placeholder="Message" class="form-textarea" required></textarea>
+      <!-- Submit Button -->
       <button type="submit" class="submit-btn">Submit</button>
     </form>
   </div>
 </div>
 
+<!-- Custom Site Footer -->
 <site-footer></site-footer>
 </body>
 </html>
