@@ -1,5 +1,5 @@
 class SiteFooter extends HTMLElement {
-  // Called automatically by the browser when the element is inserted into the DOM[cite: 8].
+  // Called automatically by the browser when the element is inserted into the DOM.
   connectedCallback() {
     this.innerHTML = `
       <footer class="footer">
